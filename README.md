@@ -1,20 +1,25 @@
-# Trabalho Prático 2 - Busca por palavras
+# ✨ Trabalho Prático 2 - Busca por palavras ✨
 
-O presente trabalho implementa lista invertida para indexar palavras-chave dos títulos dos livros na classe ArquivoLivros, que gerencia a persistência de objetos da classe  
-Livro em arquivos, bem como índices indiretos, árvore B+ e lista invertida para otimizar buscas
+O presente trabalho implementa lista invertida para indexar palavras-chave dos títulos dos livros na classe ArquivoLivros, que gerencia a persistência de objetos da classe Livro em arquivos, bem como índices indiretos, árvore B+ e lista invertida para otimizar buscas.
 
 # Resumo do funcionamento
-Inicialização:
+
+**Inicialização**
 Na inicialização, são criadas estruturas para gerenciar índices indiretos (indiceIndiretoISBN), relacionamento entre livros e categorias (relLivrosDaCategoria), e uma lista invertida (lista) para indexar palavras-chave dos títulos dos livros.
-Método Create:
+
+**Método Create**
 Adiciona um novo livro ao arquivo de livros e atualiza os índices indiretos e a lista invertida com as palavras-chave do título do livro.
-Método Read:
+
+**Método Read**
 Permite a leitura de um livro pelo seu ISBN ou título. Para isso, utiliza-se os índices indiretos ou a lista invertida para encontrar os livros correspondentes.
-Método Delete:
+
+**Método Delete**
 Remove um livro do arquivo e atualiza os índices indiretos e a lista invertida correspondentes.
-Método Update:
+
+**Método Update**
 Atualiza as informações de um livro, incluindo o ISBN, categoria, preço e título. Realiza atualizações nos índices e na lista invertida conforme necessário.
-Métodos Auxiliares:
+
+**Métodos Auxiliares**
 Há métodos auxiliares para manipulação de stop words, conversão de texto para minúsculas e remoção de acentos.
 
 # Experiência do grupo
