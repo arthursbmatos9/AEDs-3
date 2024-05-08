@@ -14,7 +14,7 @@ Durante o desenvolvimento do TP1, pudemos implementar mudanças no código para 
   Sim. Na hora de inserir um novo registro, o programa busca entre os espaços em branco aquele que tenha tamanho mais próximo ao tamanho do registro que desejamos inserir (no mínimo 90%), antes de inserí-lo no fim do arquivo.
 
 5. A operação de alteração busca o espaço vazio mais adequado para o registro quando ele cresce de tamanho antes de acrescentá-lo ao fim do arquivo?
-   Sim. Na operação de atualização de um registro que cresceu de tamanho, o programa procura entre os espaços em branco algum que tenha tamanho mais próximo ao tamanho do registro que foi atualizado (90%), antes de inserí-lo no fim do arquivo...
+   Sim. Na operação de atualização de um registro que cresceu de tamanho, o programa procura entre os espaços em branco algum que tenha tamanho mais próximo ao tamanho do registro que foi atualizado (90%), antes de inserí-lo no fim do arquivo.
 
 6. As operações de alteração (quando for o caso) e de exclusão estão gerenciando os espaços vazios para que possam ser reaproveitados?
   Sim. A inclusão e a atualização gerenciam os espaços vazios
