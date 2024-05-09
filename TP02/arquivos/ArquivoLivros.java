@@ -32,7 +32,7 @@ public class ArquivoLivros extends Arquivo<Livro> {
     while ((linhaArq = sw.readLine()) != null) {
       stopWords.add(linhaArq);
     }
-    lista.print();
+   // lista.print();
   }
 
 
