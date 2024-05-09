@@ -8,16 +8,16 @@ O presente trabalho implementa lista invertida para indexar palavras-chave dos t
 Na inicialização, são criadas estruturas para gerenciar índices indiretos (indiceIndiretoISBN), relacionamento entre livros e categorias (relLivrosDaCategoria), e uma lista invertida (lista) para indexar palavras-chave dos títulos dos livros.
 
 **Método Create**
-Adiciona um novo livro ao arquivo de livros e atualiza os índices indiretos e a lista invertida com as palavras-chave do título do livro.
+Adiciona um novo livro ao arquivo de livros e atualiza os índices indiretos e a lista invertida com as palavras-chave do título do livro, removendo as "stop words". Na classe ArquivoLivro, o método "create" recebe um objeto do tipo Livro e insere na lista invertida cada palavra de seu título, além de adicionar no índice.
 
 **Método Read**
-Permite a leitura de um livro pelo seu ISBN ou título. Para isso, utiliza-se os índices indiretos ou a lista invertida para encontrar os livros correspondentes.
+Permite a pesquisa de livros por palavras de seu título. Para isso, utiliza-se a lista invertida para encontrar os livros correspondentes. Na classe ArquivoLivro, o método "readTitulo" recebe uma string contendo as palavras a serem buscadas e retorna um array de Livros que contém tais palavras. Neste método, o código retorna apenas os livros que contém todas as palavras que foram passadas. Também está presente o método "readISBN", para pesquisar um livro diretamente, mas que não está sendo utilizado pois não é o propósito do trabalho.
 
 **Método Delete**
-Remove um livro do arquivo e atualiza os índices indiretos e a lista invertida correspondentes.
+Remove um livro do arquivo e atualiza os índices indiretos e a lista invertida correspondentes. Na classe ArquivoLivro, o método "delete" recebe o ID do livro a ser deletado e remove do índice e da lista invertida todas suas ocorrências. 
 
 **Método Update**
-Atualiza as informações de um livro, incluindo o ISBN, categoria, preço e título. Realiza atualizações nos índices e na lista invertida conforme necessário.
+Atualiza as informações de um livro, incluindo o ISBN, categoria, preço e título. Na classe ArquivoLivro, o método "update" recebe um livro e atualiza o índice e a lista invertida caso necessário.
 
 **Métodos Auxiliares**
 Há métodos auxiliares para manipulação de stop words, conversão de texto para minúsculas e remoção de acentos.
