@@ -8,23 +8,10 @@ public class LZW {
     public byte[] codificarArquivo(byte[] msgOriginal) {
 
         try {
-            // RandomAccessFile arq = new RandomAccessFile("dados/housing.xlsx", "r");
-
-            // byte[] msgOriginal = new byte[(int) arq.length()];
-            // arq.readFully(msgOriginal);
-
-            // String nome = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            // byte[] msgOriginal = nome.getBytes();
-
             byte[] msgCodificada = codifica(msgOriginal);
 
             System.out.println("mensagem original tem " + msgOriginal.length + " bytes");
             System.out.println("codificado em " + msgCodificada.length + " bytes");
-
-            // byte[] msgDecodificada = decodifica(msgCodificada);
-            // System.out.println(new String(msgDecodificada));
-
-            // arquivoBackup.write(msgCodificada);
 
             return msgCodificada;
         } catch (Exception e) {
@@ -68,10 +55,10 @@ public class LZW {
                 ultimoIndice = indice;
                 indice = dicionario.indexOf(vetorBytes);
 
-            }
+            }   
 
             // acrescenta o último índice à saída
-            saida.add(ultimoIndice);
+                saida.add(indice!=-1 ? indice : ultimoIndice);
 
             // acrescenta o novo vetor de bytes ao dicionário
             if (dicionario.size() < (Math.pow(2, BITS_POR_INDICE))) {
@@ -138,13 +125,13 @@ public class LZW {
 
             // decodifica o próximo número
             i++;
-            if (i < entrada.size()) {
+            if(i<entrada.size()) {
+                // adiciona o vetor de bytes (+1 byte do próximo vetor) ao fim do dicionário
+                if(dicionario.size()<Math.pow(2,BITS_POR_INDICE)) 
+                dicionario.add(vetorBytes);
+
                 proximoVetorBytes = dicionario.get(entrada.get(i));
                 vetorBytes.add(proximoVetorBytes.get(0));
-
-                // adiciona o vetor de bytes (+1 byte do próximo vetor) ao fim do dicionário
-                if (dicionario.size() < Math.pow(2, BITS_POR_INDICE))
-                    dicionario.add(vetorBytes);
             }
 
         }
