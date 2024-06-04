@@ -1,59 +1,44 @@
-# ✨ Trabalho Prático 2 - Busca por palavras ✨
+# ✨ Trabalho Prático 3 - Backup Compactado ✨
 
-O presente trabalho implementa lista invertida para indexar palavras-chave dos títulos dos livros na classe ArquivoLivros, que gerencia a persistência de objetos da classe Livro em arquivos, bem como índices indiretos, árvore B+ e lista invertida para otimizar buscas.
+O presente trabalho implementa uma rotina de backup sobre arquivos de dados. Tal backup utiliza a codificação LZW, que comprime os arquivos para que eles possam ocupar menos espaço. Existe também uma maneira de visualizar tais dados de forma original, por meio da função de decodificar o arquivo compactado.
 
 # Resumo do funcionamento
 
-**Inicialização**
-Na inicialização, são criadas estruturas para gerenciar índices indiretos (indiceIndiretoISBN), relacionamento entre livros e categorias (relLivrosDaCategoria), e uma lista invertida (lista) para indexar palavras-chave dos títulos dos livros.
+Ao iniciar o código, o usuário é direcionado ao menu principal, onde existem opções de realizar alterações nas entidades ou de visualizar um arquivo de backup. Com o propósito de aplicar a compactação e descompactação usando o algoritmo LZW, todos os arquivos são compactados quando o usuário clica na opção de "Sair" no menu, tendo em mente que realizou todas as mudanças necessárias.
 
-**Método Create**
-Adiciona um novo livro ao arquivo de livros e atualiza os índices indiretos e a lista invertida com as palavras-chave do título do livro, removendo as "stop words". Na classe ArquivoLivro, o método "create" recebe um objeto do tipo Livro e insere na lista invertida cada palavra de seu título, além de adicionar no índice.
+Então, usamos a classe "LocalDateTime" que pega a data e horário atual para ser o nome da pasta de backup, como exemplo: 25_05_2024___17_53_40. Assim, o código chama a função "criarArquivo" passando como parâmetro o nome do arquivo e o dia com o horário. Em tal função, o código lê o arquivo original e transforma-o em um vetor de bytes, para que possa ser compactado usando o código LZW. Essa sequência de operações acontece para todos os arquivos de dados.
 
-**Método Read**
-Permite a pesquisa de livros por palavras de seu título. Para isso, utiliza-se a lista invertida para encontrar os livros correspondentes. Na classe ArquivoLivro, o método "readTitulo" recebe uma string contendo as palavras a serem buscadas e retorna um array de Livros que contém tais palavras (opção 5 no menu de livros). Neste método, o código retorna apenas os livros que contém todas as palavras que foram passadas. Também está presente o método "readISBN" para pesquisar um livro diretamente, que, apesar de não ser o propósito do trabalho, está presente (opção 2 no menu de livros).
-
-**Método Delete**
-Remove um livro do arquivo e atualiza os índices indiretos e a lista invertida correspondentes. Na classe ArquivoLivro, o método "delete" recebe o ID do livro a ser deletado e remove do índice e da lista invertida todas suas ocorrências. 
-
-**Método Update**
-Atualiza as informações de um livro, incluindo o ISBN, categoria, preço e título. Na classe ArquivoLivro, o método "update" recebe um livro e atualiza o índice e a lista invertida caso necessário.
-
-**Métodos Auxiliares**
-Há métodos auxiliares para manipulação de stop words, conversão de texto para minúsculas e remoção de acentos.
+Para descompactar os arquivos que estão nas pastas de backup, o usuário seleciona a opção "Verificar arquivos de Backup" no menu principal, para ser direcionado à função "verificarBackup" que mostra todas as pastas de backup disponíveis, com sua data e hora. Após escolher, é necessário fazer a escolha do arquivo que deseja visualizar, digitando seu número correspondente. Tendo a versão e o arquivo em mãos, o código consegue acessar o arquivo desejado, que está compactado, transforma-o para um vetor de bytes e então consegue chamar a função de decodificar do LZW.
 
 # Experiência do grupo
 
-O desenvolvimento do trabalho prático foi desafiador para o nosso grupo. Conseguimos implementar todos os requisitos, mas enfrentamos dificuldades com o método read. A busca por título, utilizando índices indiretos e a lista invertida, foi complicada de otimizar. Foi necessário revisar várias vezes a lógica da busca para garantir sua eficiência e precisão. Apesar dos obstáculos, conseguimos superar esse desafio e alcançar os resultados desejados.
+O desenvolvimento do terceiro trabalho prático transcorreu de forma bastante tranquila. O grupo organizou-se e planejou bem os requisitos que eram necessários, o que resultou em um resultado satisfatório ao final do projeto, com todos os requisitos atendidos conforme o esperado.
 
 # Perguntas à serem respondidas
 
-1 - A inclusão de um livro acrescenta os termos do seu título à lista invertida? 
-    Sim! Ao incluir um livro, os termos do seu título são acrescentados à lista invertida.
+1 - Há uma rotina de compactação usando o algoritmo LZW para fazer backup dos arquivos?
 
-2 - A alteração de um livro modifica a lista invertida removendo ou acrescentando termos do título?
-    Sim, a alteração de um livro pode modificar a lista invertida removendo ou acrescentando termos do título conforme necessário.
+    Sim. Todos os arquivos são compactados e salvos em uma nova pasta de backup quando o usuário seleciona a opção de sair, ou seja, após fazer todas as atualizações necessárias no momento.
 
-3 - A remoção de um livro gera a remoção dos termos do seu título na lista invertida?
-    Sim, a remoção de um livro gera a remoção dos termos do seu título na lista invertida.
+2 - Há uma rotina de descompactação usando o algoritmo LZW para recuperação dos arquivos?
 
-4 - Há uma busca por palavras que retorna os livros que possuam essas palavras?
-    Sim, há uma busca por palavras que retorna os livros que possuam essas palavras utilizando a lista invertida.
+    Sim. Tal rotina acontece após o usuário escolher a versão e arquivo que deseja visualizar.
+    
+3 - O usuário pode escolher a versão a recuperar?
 
-5 - Essa busca pode ser feita com mais de uma palavra?
-    Sim, essa busca pode ser feita com mais de uma palavra, retornando os livros que possuem todas as palavras buscadas.
+    Sim. Logo no menu principal existe a opção do usuário escolher qual a versão e arquivo que deseja descompactar para visualizar. 
+    
+4 - Qual foi a taxa de compressão alcançada por esse backup? (Compare o tamanho dos arquivos compactados com os arquivos originais)
 
-6 - As stop words foram removidas de todo o processo?
-    Sim, as stop words foram removidas do processo de indexação na lista invertida, garantindo que apenas palavras relevantes sejam consideradas.
+    
+5 - O trabalho está funcionando corretamente?
 
-7 - Que modificação, se alguma, você fez para além dos requisitos mínimos desta tarefa?
-    Nessa etapa, o grupo implementou apenas os requisitos minímos.
+    Sim, as rotinas de compactactação, descompactação e formação das pastas de backup estão funcionando corretamente.
+    
+6 - O trabalho está completo?
 
-8 - O trabalho está funcionando corretamente?
-    O trabalho está funcionando corretamente.
+    Sim, o trabalho está completo.
+    
+7 - O trabalho é original e não a cópia de um trabalho de um colega?
 
-9 - O trabalho está completo?
-    O trabalho está completo.
-
-10 - O trabalho é original e não a cópia de um trabalho de um colega?
     Sim, o trabalho é original.
