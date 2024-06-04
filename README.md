@@ -14,10 +14,10 @@ Para descompactar os arquivos que estão nas pastas de backup, o usuário seleci
 
 O desenvolvimento do terceiro trabalho prático transcorreu de forma bastante tranquila. O grupo organizou-se e planejou bem os requisitos que eram necessários, o que resultou em um resultado satisfatório ao final do projeto, com todos os requisitos atendidos conforme o esperado.
 
-# Perguntas à serem respondidas
+# Perguntas a serem respondidas
 
 1 - Há uma rotina de compactação usando o algoritmo LZW para fazer backup dos arquivos?
-
+    
     Sim. Todos os arquivos são compactados e salvos em uma nova pasta de backup quando o usuário seleciona a opção de sair, ou seja, após fazer todas as atualizações necessárias no momento.
 
 2 - Há uma rotina de descompactação usando o algoritmo LZW para recuperação dos arquivos?
@@ -30,6 +30,7 @@ O desenvolvimento do terceiro trabalho prático transcorreu de forma bastante tr
     
 4 - Qual foi a taxa de compressão alcançada por esse backup? (Compare o tamanho dos arquivos compactados com os arquivos originais)
 
+    Cada arquivo teve uma taxa de compressão diferente. Nos piores casos, apenas de 10%, mas chegando em até 80% de compressão. Em média, percebemos que tal taxa foi de aproximadamente 50%.
     
 5 - O trabalho está funcionando corretamente?
 
