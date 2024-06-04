@@ -53,6 +53,7 @@ public class Principal {
             break;
           case 4:
             verificarBackup();
+            break;
           case 9:
             preencherDados();
             break;
@@ -143,23 +144,6 @@ public class Principal {
     String msgDecodificada = new String(arqDecodificado);
     System.out.println(msgDecodificada);
     arquivoRecuperado.close();
-    /*
-     * System.out.println("0- autores.db");
-     * System.out.println("1- autores.hash_c.db");
-     * System.out.println("2- autores.hash_d.db");
-     * System.out.println("3- blocos.listainv.db");
-     * System.out.println("4- categorias.db");
-     * System.out.println("5- categorias.hash_c.db");
-     * System.out.println("6- categorias.hash_d.db");
-     * System.out.println("7- dicionario.listainv.db");
-     * System.out.println("8- livros_categorias.btree.db");
-     * System.out.println("9- livros_isbn.hash_c.db");
-     * System.out.println("10- livros_isbn.hash_d.db");
-     * System.out.println("11- livros.db");
-     * System.out.println("12- livros.hash_c.db");
-     * System.out.println("13- livros.hash_d.db");
-     */
-
   }
 
   public static void preencherDados() {
