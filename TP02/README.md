@@ -5,7 +5,7 @@ O presente trabalho implementa lista invertida para indexar palavras-chave dos t
 # Resumo do funcionamento
 
 **Inicialização**
-Na inicialização, são criadas estruturas para gerenciar índices indiretos (indiceIndiretoISBN), relacionamento entre livros e categorias (relLivrosDaCategoria), e uma lista invertida (lista) para indexar palavras-chave dos títulos dos livros.
+Na inicialização,são criadas estruturas para gerenciar índices indiretos (indiceIndiretoISBN), relacionamento entre livros e categorias (relLivrosDaCategoria), e uma lista invertida (lista) para indexar palavras-chave dos títulos dos livros.
 
 **Método Create**
 Adiciona um novo livro ao arquivo de livros e atualiza os índices indiretos e a lista invertida com as palavras-chave do título do livro, removendo as "stop words". Na classe ArquivoLivro, o método "create" recebe um objeto do tipo Livro e insere na lista invertida cada palavra de seu título, além de adicionar no índice.
