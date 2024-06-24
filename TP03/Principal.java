@@ -128,17 +128,23 @@ public class Principal {
     opcoesBackup = diretorio.listFiles();
     contador = 0;
     System.out.println("\nQual arquivo deseja acessar? Digite o numero correspondente");
-
+    System.out.println("1");
     for (File f : opcoesBackup) {
       System.out.println(contador + "- " + f);
       contador++;
     }
+  
     int arquivoBackup = console.nextInt();
+    System.out.println(arquivoBackup);
+    
     String nomeArquivo = opcoesBackup[arquivoBackup].getName();
 
     RandomAccessFile arquivoRecuperado = new RandomAccessFile("backup/" + nomeVersao + "/" + nomeArquivo, "r");
+
     byte[] arqCodificado = new byte[(int) arquivoRecuperado.length()];
+
     arquivoRecuperado.readFully(arqCodificado);
+  
     byte[] arqDecodificado = LZW.decodifica(arqCodificado);
 
     String msgDecodificada = new String(arqDecodificado);

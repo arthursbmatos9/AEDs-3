@@ -20,7 +20,7 @@ public class BitSequence {
             if(n%2==0)
                 bs.clear(ultimoBit++);
             else
-               bs.set(ultimoBit++);
+                    bs.set(ultimoBit++);
             n = n >> 1;
             i--;
         }
